@@ -1,17 +1,25 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 set tabstop=4
-set noexpandtab
 set shiftwidth=4
+set noexpandtab
 filetype plugin indent off
+
+"let g:ycm_python_binary_path = 'python3'
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 
 syntax on
 set background=dark
