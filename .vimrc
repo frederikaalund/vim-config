@@ -52,6 +52,13 @@ filetype plugin indent off
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 
+"
+" Use bash-like filename completion
+"
+set wildmode=longest,list
+set wildmenu
+
+
 
 "
 " YouCompleteMe
@@ -126,3 +133,4 @@ let g:syntastic_check_on_wq = 0
 
 " Tsuquyomi covers this part
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+
