@@ -11,6 +11,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Git commands
 Plug 'tpope/vim-fugitive'
+" Git changes overview in sidebar
+Plug 'airblade/vim-gitgutter'
 " Theme
 Plug 'morhetz/gruvbox'
 " Status/tabline
@@ -30,6 +32,10 @@ Plug 'leafgarland/typescript-vim'
 " Diagnostics UI. We use it for non-C-family languages (since YouCompleteMe's
 " diagnostics ui only supports C-family languages)
 Plug 'scrooloose/syntastic'
+" Git motion highlighting
+Plug 'easymotion/vim-easymotion'
+" Displays the indentation level with vertical lines
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
@@ -48,8 +54,12 @@ filetype plugin indent off
 " Custom Commands
 "
 
+" Override the <Leader>
+let mapleader = ","
+
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 
 
 "
@@ -68,11 +78,9 @@ set wildmenu
 let g:ycm_filetype_specific_completion_to_disable = {
 	\'typescript': 1
 	\}
-"let g:ycm_python_binary_path = 'python3'
+let g:ycm_python_binary_path = 'python3'
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
-"let g:ycm_server_keep_logfiles = 1
-"let g:ycm_server_log_level = 'debug'
 
 
 
@@ -81,6 +89,7 @@ let g:ycm_filetype_specific_completion_to_disable = {
 "
 syntax on
 set background=dark
+set termguicolors
 let g:gruvbox_contrast_light="hard"
 let g:gruvbox_italic=1
 let g:gruvbox_invert_signs=0
@@ -94,7 +103,7 @@ colorscheme gruvbox
 "
 " Airline
 "
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
 
@@ -133,4 +142,27 @@ let g:syntastic_check_on_wq = 0
 
 " Tsuquyomi covers this part
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:syntastic_python_python_exec = 'python3'
+
+
+
+"
+" EasyMotion
+"
+
+" Use just a single <Leader> to activate (Default is two <Leader>s)
+map <Leader> <Plug>(easymotion-prefix)
+
+" Override Vim's default search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" Also override the next/previous for better higlighting
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Cross-window two-char motion (overrides default s which is substitute)
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Case-upgrading for global searches (as done with /). E.g.: v -> v and V. But V -> V.
+let g:EasyMotion_smartcase = 1
 
