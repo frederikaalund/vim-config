@@ -84,7 +84,7 @@ set wildmenu
 let g:ycm_filetype_specific_completion_to_disable = {
 	\'typescript': 1
 	\}
-let g:ycm_python_binary_path = 'python3'
+"let g:ycm_python_binary_path = 'python3'
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -95,9 +95,10 @@ let g:ycm_python_binary_path = 'python3'
 "
 syntax on
 set background=dark
-set termguicolors
+"set termguicolors
 let g:gruvbox_contrast_light="hard"
 let g:gruvbox_italic=1
+let g:gruvbox_bold=1
 let g:gruvbox_invert_signs=0
 let g:gruvbox_improved_strings=0
 let g:gruvbox_improved_warnings=1
