@@ -34,8 +34,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 " Git motion highlighting
 Plug 'easymotion/vim-easymotion'
-" Displays the indentation level with vertical lines
-Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
@@ -51,13 +49,21 @@ filetype plugin indent off
 
 
 "
+" Save swap files in home directory subdir
+"
+set dir=$HOME/.vimtmp/swap//
+if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
+
+
+
+"
 " Custom Commands
 "
 
 " Override the <Leader>
 let mapleader = ","
 
-"Remove all trailing whitespace by pressing F5
+" Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 
@@ -116,6 +122,13 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+
+
+"
+" CtrlP
+"
+let g:ctrlp_custom_ignore = { 'dir': '\vnode_modules' }
 
 
 
