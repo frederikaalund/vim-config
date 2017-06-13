@@ -34,6 +34,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 " Git motion highlighting
 Plug 'easymotion/vim-easymotion'
+" Case-sensitive, plural-sensitive substitutions/conversions
+Plug 'tpope/tpope-vim-abolish'
 call plug#end()
 
 
