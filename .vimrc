@@ -141,6 +141,7 @@ let g:ctrlp_custom_ignore = { 'dir': '\vnode_modules' }
 
 " Syntastic covers this part
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_single_quote_import = 1
 
 
 
