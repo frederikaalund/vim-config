@@ -36,6 +36,8 @@ Plug 'scrooloose/syntastic'
 Plug 'easymotion/vim-easymotion'
 " Case-sensitive, plural-sensitive substitutions/conversions
 Plug 'tpope/tpope-vim-abolish'
+" Handlebars (.hbs) support
+Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
 
@@ -154,12 +156,17 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_w = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+	\ "mode": "active",
+	\ "active_filetypes": [],
+	\ "passive_filetypes": ["python"] }
+let g:syntastic_python_python_exec = 'python3.6'
 
 " Tsuquyomi covers this part
 let g:syntastic_typescript_checkers = ['tsuquyomi']
-let g:syntastic_python_python_exec = 'python3'
 
 
 
