@@ -38,16 +38,23 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/tpope-vim-abolish'
 " Handlebars (.hbs) support
 Plug 'mustache/vim-mustache-handlebars'
+" Auto-formatting
+Plug 'Chiel92/vim-autoformat'
+" Tabs for indentation and spaces for alignment
+Plug 'vim-scripts/Smart-Tabs'
 call plug#end()
 
 
 
 "
-" Indentation
+" Indentation and alignment
 "
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
+set list
+set listchars=tab:·\ 
+let g:python_recommended_style = 0
 filetype plugin indent off
 
 
@@ -190,3 +197,18 @@ nmap s <Plug>(easymotion-overwin-f2)
 " Case-upgrading for global searches (as done with /). E.g.: v -> v and V. But V -> V.
 let g:EasyMotion_smartcase = 1
 
+
+
+"
+" Auto-format
+"
+"
+
+" Disable fallback to vim's indent file, retabbing and removing trailing
+" whitespace
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+" Map to F3
+noremap <F3> :Autoformat<CR>
