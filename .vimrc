@@ -40,8 +40,6 @@ Plug 'tpope/tpope-vim-abolish'
 Plug 'mustache/vim-mustache-handlebars'
 " Auto-formatting
 Plug 'Chiel92/vim-autoformat'
-" Tabs for indentation and spaces for alignment
-Plug 'vim-scripts/Smart-Tabs'
 call plug#end()
 
 
@@ -51,11 +49,10 @@ call plug#end()
 "
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set copyindent
 set list
 set listchars=tab:·\ 
 let g:python_recommended_style = 0
-filetype plugin indent off
 
 
 
@@ -140,7 +137,7 @@ au Syntax * RainbowParenthesesLoadBraces
 "
 " CtrlP
 "
-let g:ctrlp_custom_ignore = { 'dir': '\vnode_modules' }
+let g:ctrlp_custom_ignore = { 'dir': '\v(node_modules|build/lib)' }
 
 
 
