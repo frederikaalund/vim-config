@@ -53,6 +53,8 @@ set copyindent
 set list
 set listchars=tab:·\ 
 let g:python_recommended_style = 0
+" Highlight characters over the column limit (100)
+call matchadd('ColorColumn', '\%>101v', 100)
 
 
 
